@@ -254,7 +254,7 @@
 - 3. 안전성 : 시스템이 대규모의 실패없이 정상적으로 동작하는 능력
 - 4. 보안 : 고의적이고 급작스런 외부 침입에도 시스템이 스스로를 보호할 수 있는 능력
 - 5. 회복탄력성 : 시스템에 손상이 발생하는 상황에 대해 저항하거나 스스로 복구할 수 있는 능력
-- 서비스 별로 필요 가용성은 다음 표를 참조
+- 서비스 별로 필요 가용성은 다음 표를 참조  
 ![image](https://user-images.githubusercontent.com/99636945/196832774-5e723792-9adf-4c5e-91c7-a7da7d28298d.png)
 #### 5-3.5. 보안
 - 다양하고 복잡하며, 계츠에 따라 표준화된 보안 방식이 존재
@@ -270,12 +270,12 @@
 - 소프트웨어를 안정적으로 보관할 장소가 필요함
 - 업데이트가 지속됨에 따라 기존 출시 제품에 대한 유지보수를 수행할 수 있어야 함
 - 소스코드의 어디가 어떻게 변경되었는지, 왜 변경되었는지 추적이 필요함
-- 추적이 필요한 이유는 다음 4가지로 정리할 수 있음
+- 추적이 필요한 이유는 다음 4가지로 정리할 수 있음  
 ![image](https://user-images.githubusercontent.com/99636945/196833492-418b9530-eb9f-474d-b3db-1803aab551b8.png)
 
 ### 6-2. 소프트웨어 형상 관리란?
 - 개발하고 사용하는 동안 끊임없이 변화하는 소프트웨어를 관리하기 위해 사용되는 정책, 절차, 도구를 의미함.
-- 4가지 활동으로 구분됨
+- 4가지 활동으로 구분됨  
 ![image](https://user-images.githubusercontent.com/99636945/196833705-cf3527bb-a191-46d4-bbe5-e48fabf7bb28.png)
 
 ### 6-3. Git을 활용한 소프트웨어 버전 관리
@@ -286,23 +286,23 @@
 #### 6-3.2. Git을 활용한 소스 관리
 - 1. Git Repository 생성
 - Repository는 깃에서 소스코드를 저장하는 단위임
-- 제품 단위로 repository를 생성하게 됨
+- 제품 단위로 repository를 생성하게 됨  
 ![image](https://user-images.githubusercontent.com/99636945/196834013-80888439-7b66-4aaf-9d46-61911b629260.png)
 - 2. Git Repository 사용 방식
-- 2-1. github에 있는 repository를 로컬PC로 동기화 후, 해당 디렉터리에 코드 작성
+- 2-1. github에 있는 repository를 로컬PC로 동기화 후, 해당 디렉터리에 코드 작성  
 ![image](https://user-images.githubusercontent.com/99636945/196834122-5ff0026b-cf6a-4e71-bae3-245659ed7f08.png)
-- 2-2. 기존 코드가 존재하던 디렉토리를 Repository와 연결
+- 2-2. 기존 코드가 존재하던 디렉토리를 Repository와 연결  
 ![image](https://user-images.githubusercontent.com/99636945/196834213-04ed998f-93b5-43aa-bf70-ebfdcf38afba.png)
 #### 6-3.3. Local PC에서 git 사용 시 환경 설정
 - 사용자 단위 설정과 디렉토리 단위 설정이 존재
 - 사용자 단위 설정은 해당 사용자가 생성한 디렉터리에 기본 적용
-- 디렉터리 단위 설정은 해당 디렉터리의 Repository에만 적용되는 설정, 우선순위가 높음
+- 디렉터리 단위 설정은 해당 디렉터리의 Repository에만 적용되는 설정, 우선순위가 높음  
 ![image](https://user-images.githubusercontent.com/99636945/196834400-f6baded4-f181-40bb-9b57-22024a77aeb8.png)
-- 대표적 설정값 : 사용자 이름, 이메일
+- 대표적 설정값 : 사용자 이름, 이메일  
 ![image](https://user-images.githubusercontent.com/99636945/196834450-e9b5532a-5db6-455f-9d72-14a2b1c09d88.png)
 
 ### 6-4. 버전 관리
-- 사용자에게 이미 출시된 제품에 대한 관리, Tag 기능을 사용해서 관리
+- 사용자에게 이미 출시된 제품에 대한 관리, Tag 기능을 사용해서 관리  
 ![image](https://user-images.githubusercontent.com/99636945/196834761-5ddd71b3-e08b-42a1-9da8-9bcde28059de.png)
 - 통합 과정에서 발생하는 변경사항에 대한 관리
 - 각각 개발자가 수정하면서 발생한 변경으로 인한 코드의 내용이 달라짐(버전이 달라진다고 함)
@@ -312,32 +312,32 @@
 - 파일에 변경을 발생시킨 후 저장할 때 마다 그 파일 상태를 온전히 저장하는 방식
 - 여러 번 변경이 발생해도 그 시점의 파일 상태를 확인하는 것이 가능
 - username, email로 판별
-- Repository와 디렉토리의 관계를 표현할 수 있다
+- Repository와 디렉토리의 관계를 표현할 수 있다  
 ![image](https://user-images.githubusercontent.com/99636945/196835033-94efaafc-830d-4fb2-9fb9-c40f6572237d.png)
 
 ### 6-5. Git 버전 관리 실습
 - Github를 원격 저장소로 사용하는 경우
 - 웹 브라우저를 통해 인증 시 자동으로 github에 로그인한 username, email 사용
 - 자격증명 관리자 기능을 통해 처리
-- .gitconfig를 통해 username, email 변경 가능
+- .gitconfig를 통해 username, email 변경 가능  
 ![image](https://user-images.githubusercontent.com/99636945/196835276-004fa240-d37b-451a-ac8e-5d5b4f418911.png)
 
 #### 6-5.1. 개발자들에게 공유
-- Git Repository를 사용할 수 있게 해야함
+- Git Repository를 사용할 수 있게 해야함  
 ![image](https://user-images.githubusercontent.com/99636945/196835455-dd864332-f05b-4896-9a5e-011ca25fd6c0.png)
 
 #### 6-5.2. 내가 작성한 코드 반영
-- 1. Git local Repository에서 소스코드 변경하기
+- 1. Git local Repository에서 소스코드 변경하기  
 ![image](https://user-images.githubusercontent.com/99636945/196835552-6d930746-698b-453c-bbb6-23a771b177c9.png)
-- 2. Local Repository의 상태 확인
+- 2. Local Repository의 상태 확인  
 ![image](https://user-images.githubusercontent.com/99636945/196835633-30ee6919-b10e-489d-ae6e-9859280533fd.png)
-- 3. Git Repository에 소스코드 변경사항 추가
+- 3. Git Repository에 소스코드 변경사항 추가  
 ![image](https://user-images.githubusercontent.com/99636945/196835748-f14bc267-538f-41a1-a9b8-4d3a0f7afb1c.png)
-- 4. Git local Repository에 소스코드 변경사항을 영구적으로 반영
+- 4. Git local Repository에 소스코드 변경사항을 영구적으로 반영  
 ![image](https://user-images.githubusercontent.com/99636945/196835879-82898c02-b2b1-4bd3-a51d-14709a8f4732.png)
 ![image](https://user-images.githubusercontent.com/99636945/196835991-5b470ccd-588c-4b6f-aede-ac4d12f09fd3.png)
 - 커밋 시 메시지를 넣지 않으면 반드시 메세지를 넣으라며 에디터를 띄워줌
-- 5. Git local Repository에 영구적으로 반영한 변경사항 확인
+- 5. Git local Repository에 영구적으로 반영한 변경사항 확인  
 ![image](https://user-images.githubusercontent.com/99636945/196836100-0140af2c-666c-4c97-9096-a3eac9b99dd3.png)
 ![image](https://user-images.githubusercontent.com/99636945/196836129-25bb3fc0-d650-416a-8321-7996fd91691a.png)
 - git show로 commit의 세부 내용을 확인할 수도 있다
