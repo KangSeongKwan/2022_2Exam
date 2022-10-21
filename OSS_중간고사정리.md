@@ -105,6 +105,12 @@
 ![image](https://user-images.githubusercontent.com/99636945/197141638-cfd6598b-b3dd-499b-9686-585ade46ed82.png)
 
 ### 3-5. 깃 저장소 상태 정보
+- git status로 확인하고 -s 옵션으로 간단하게 확인할 수 있다.
+- -s 옵션은 --short와 동일하다.
+- status 옵션으로 볼 수 있는 상태는 다음과 같다.
+![image](https://user-images.githubusercontent.com/99636945/197142774-903a1f9d-f48d-4cf8-96e5-b93afb9a52dd.png)
+- 상태 변화는 다음과 같다
+![image](https://user-images.githubusercontent.com/99636945/197142857-5d7e73ae-e315-402c-9ce9-773875515941.png)
 
 
 
