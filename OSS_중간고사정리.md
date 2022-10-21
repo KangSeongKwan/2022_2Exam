@@ -61,10 +61,12 @@
 - 설정파일은 .gitconfig에 저장되며, local 수준이 global 수준보다 우선 순위가 높다.
 - 명령어는 git config이며 그 뒤에 다른 옵션을 붙일 수 있다.
 - git config --[global/local] [설정하려는 환경 변수] [설정값]
-- 예시는 아래 사진으로 대체한다.  
+- 아래와 같이 사용자 설정 및 CRLF, 줄넘김 설정을 변경한다  
 ![image](https://user-images.githubusercontent.com/99636945/197136594-bde1251f-7b55-43a5-b44e-37759d4e55b5.png)
 - 다음 명령어로는 깃에서의 편집기 설정을 바꿀 수 있다
 ![image](https://user-images.githubusercontent.com/99636945/197136815-5f4641ae-8710-4828-ba7d-d0e96eb2246e.png)
+- 깃의 기본 브랜치 이름을 변경할 수도 있다.
+![image](https://user-images.githubusercontent.com/99636945/197138814-7e24f45c-9ada-4a37-b858-0a799d537c2b.png)
 - 전체 설정을 확인하려면 git config --list를 이용한다.
 - 부분 설정값은 git config [보고자 하는 설정] 으로 확인한다.
 
@@ -76,7 +78,33 @@
 - 저장소가 아닌 설정을 삭제하려면 git config에서 --unset 옵션을 덧붙이면 된다
 ![image](https://user-images.githubusercontent.com/99636945/197138475-f9051cb3-bba2-4c9c-b0fb-ff2f3b527c1f.png)
 
+### 3-2. 관리 파일, 파일 추가 및 커밋
+- 파일의 상태는 두 가지로 나뉜다.
+- Untracked : 관리 대상이 아닌 파일을 의미한다. git add로 추가하면 Tracked 파일이 된다.
+- Tracked : git add로 추가된 관리될 수 있는 파일
+![image](https://user-images.githubusercontent.com/99636945/197139260-30463348-6367-4e63-87d7-494b15812efd.png)
+- 깃의 라이프 사이클을 보면 더 쉽게 이해할 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/197139546-ee2025d9-5918-49d7-9de5-207b3bbe716c.png)
+- 파일이 Tracked 상태가 되기 전 까지는 Commit이 불가능하다.
+- 그렇기에 파일을 생성하거나 수정하면, git add를 우선시 해야한다.
+- add, commit 등 어떠한 동작을 해야 하는 지 모르겠다면, git status 명령을 사용해야 한다.
+- 상태메시지는 아래 사진과 같다.  
+![image](https://user-images.githubusercontent.com/99636945/197140326-315b7c58-bfcc-4d7e-a7c5-daabe9b9cf55.png)
+![image](https://user-images.githubusercontent.com/99636945/197140560-a02daa45-63e9-4a6b-8012-1b11dea8cf7e.png)
 
+### 3-3. 커밋 히스토리 확인
+- git log로 확인한다. 
+- 확인할 수 있는 내용은 Author 영역의 이름과 이메일 주소, 마지막 커밋 HEAD부터 모든 이력 로그, 커밋 메시지 등이 있다.
+- --oneline, --graph 등의 옵션이 있지만 추후에 설명한다.
+
+### 3-4. 파일의 생애주기 상세
+- Tracked와 Untracked로 나뉘고 워킹디렉터리의 모든 파일이 이 주기를 가진다.
+![image](https://user-images.githubusercontent.com/99636945/197141258-9f135fd2-e711-4376-8228-278cdb0c6621.png)
+![image](https://user-images.githubusercontent.com/99636945/197141368-1b817ef0-08f6-437a-9df9-c3ef8fbb809d.png)
+- 아래 그림으로 간략하게 알 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/197141638-cfd6598b-b3dd-499b-9686-585ade46ed82.png)
+
+### 3-5. 깃 저장소 상태 정보
 
 
 
