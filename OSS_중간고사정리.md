@@ -111,6 +111,147 @@
 ![image](https://user-images.githubusercontent.com/99636945/197142774-903a1f9d-f48d-4cf8-96e5-b93afb9a52dd.png)
 - 상태 변화는 다음과 같다  
 ![image](https://user-images.githubusercontent.com/99636945/197142857-5d7e73ae-e315-402c-9ce9-773875515941.png)
+- 이후 Working Directory의 수정을 취소하려면 git restore 명령을 사용하면 된다.
+- stage Area에 올린 것을 취소하려면 --staged 옵션을 덧붙인다.
+![image](https://user-images.githubusercontent.com/99636945/197310586-dd0b13ea-7e54-4db7-9a5d-4d3d6bfa92e2.png)
+
+### 3-6. 작업공간, Staging Area에 있는 파일 삭제
+- git rm 명령어를 사용한다.
+![image](https://user-images.githubusercontent.com/99636945/197310672-da902efd-e5c2-45ef-b6dc-3b38606bd6a7.png)
+- --cached 옵션을 사용하면 작업 공간은 보존하고, staged Area에 있는 파일만 삭제한다.
+![image](https://user-images.githubusercontent.com/99636945/197310666-069dd5ae-34a2-4810-ab18-14ae9c413c48.png)
+- 강제 삭제 옵션은 -f를 사용한다.
+- 강제 삭제 옵션을 사용해야 하는 경우는 아래 두 가지 사항으로 오류가 나는 경우이다.
+![image](https://user-images.githubusercontent.com/99636945/197310745-c4b35159-84a2-4249-807f-861e7ab7134e.png)
+
+# 4. 지역과 원격저장소 연동 기초
+### 4-1. 지역에서 깃허브 저장소 클론(Clone)
+- fork를 이용하여 원격 저장소를 내 깃허브 repository로 가져올 수 있다.
+- 이후, fork로 연동된 저장소를 clone로 내 PC에 저장하면, Git Bash를 이용한 이력관리를 할 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/197310776-6c011226-90d7-4b4e-9881-f00725bef54e.png)
+- 명령어는 git clone [저장소 url] 이다.
+- 원격 저장소 별칭을 확인하려면 git remote를 사용한다. -v 옵션을 덧붙이면 주소도 같이 조회한다.
+
+### 4-2. 깃허브 저장소 수정 후 풀(Pull) 또는 푸시(Push)
+- 원격, 지역 간의 데이터 공유의 대략적인 구조는 다음과 같다.
+![image](https://user-images.githubusercontent.com/99636945/197311010-f05fff92-64f2-4e96-b022-7becc6417358.png)
+- git pull 명령어는 원격 저장소에서 변경사항이 발생할 경우, PC에 있는 깃 저장소로 변경사항을 내려받고 싶을 때 사용한다.
+- git push 명령어는 지역 저장소(PC)에서의 변경 사항을 원격 Git Repository에 반영하고 싶을 때 사용한다.
+- git push는 자신의 저장소가 아닌 경우, Write 권한이 주어져야 가능하다.
+
+### 4-3. Pull Request
+- fork된 상대의 저장소에 대한 변경사항을 Pull Request를 요청하여 병합을 요청하는 과정이다.
+![image](https://user-images.githubusercontent.com/99636945/197312211-bb244dbe-0f28-4028-818d-70282ce5dbef.png)
+- 저장소에 대한 쓰기 권한이 없을 경우 Request를 요청하여 상대가 확인한 후, 병합할 수 있다.
+
+# 5. 브랜치
+### 5-1. 브랜치에 대한 이해
+- Branch는 나무 가지에서 유래한 기능이다.
+- 개발 과정에서 각각 서로 다른 버전의 코드가 만들어질 수 있는 상황이 존재한다.
+- 이때 여러 브랜치로 나누어 작업하고, 병합하여 유동적인 작업을 할 수 있다.
+- 예시로는 동일한 소스코드를 어떤 사람은 버그를 수정하고, 어떤 사람은 새로운 기능을 만들어내는 경우이다.
+- 각자의 독립적인 영역에서 마음대로 소스코드를 변경할 수 있다.
+- 각각의 부른채는 다른 브랜치와 병합(Merge)함으로써 작업한 내용을 다시 병합할 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/197313795-ece08bbc-65cd-49de-885e-8c79cfd6051e.png)
+![image](https://user-images.githubusercontent.com/99636945/197313955-cba035fb-e563-489e-8558-c48494beecca.png)
+
+### 5-2. main 브랜치
+- 저장소를 처음 생성하면, main이란 이름으로 브랜치를 생성한다.
+- 원래는 master였지만, master/slave 개념을 IT업계에서 쓰지 않을것을 권장하기에, main이란 이름을 쓸 것을 권장하고 있다.
+- 새로운 저장소에 새 파일을 추가하거나, 파일 내용을 변경하여 그 내용을 저장하는 것을 처리할 수 있다.
+- 모든 작업은 main 브랜치에서 이루어진다.
+- branch를 생성할 수도 있고, 다른 브랜치로의 이동도 가능하다.
+- 브랜치 생성은 git [branch/switch -c/checkout -b] 등을 활용한다.
+- 브랜치 이동은 git [switch/checkout] 을 사용한다.
+
+### 5-3. 브랜치의 장점과 활용
+- 하나의 큰 작업 흐름의 단위인 브랜치로 작업하게 된다.
+- 기록을 중간중간 남기므로 문제 발생에 대해 원인을 찾거나 대책을 세우기 쉬워진다.
+- 브랜치 이름에는 일반적으로 5개의 규칙이 있다.
+- 항상 유지되어야 하는 main, develop 브랜치와 일정 기간만 유지되는 feature, release, hotfix 가 있다.
+- 이중 main 브랜친느 언제든지 배포할 수 있는 버전을 만들어야 하는 브랜치이다.
+- 그래서, 늘 안정적인 상태를 유지하는 것이 중요하다.
+- Pull Request 또한 각 Branch 별로 요청할 수 있다.
+
+### 5-4. 토픽 브랜치
+- 통합 브랜치에서 생성되는 브랜치이다.
+- 기능 추가 및 버그 수정 같은 단위 작업을 위한 브랜치이다.
+- 토픽 브랜치에서 특정 작업이 완료되면, 다시 통합 브랜치에 병합한다.
+![image](https://user-images.githubusercontent.com/99636945/197315188-01fe2efc-e83e-4b00-b8eb-011cd2b38b1c.png)
+
+### 5-5. 브랜치 합병
+- main branch에서 임의의 브랜치를 생성 후 그 아래에 또 다시 브랜치를 생성한다.
+![image](https://user-images.githubusercontent.com/99636945/197315381-1891fa46-3b52-4438-8d0c-10cdc78149e3.png)
+![image](https://user-images.githubusercontent.com/99636945/197315404-5ff5ed58-08c0-4a3f-b284-ab74a7f9aca1.png)
+- 두 결과의 차이점은 feature2 브랜치에서 어디로 PR을 보냈느냐에 있다.
+
+### 5-6. branch별로 나누어 볼 수 있는 정보
+![image](https://user-images.githubusercontent.com/99636945/197315599-65d58d09-0fd7-4262-8758-52262749ef13.png)
+
+### 5-7. 브랜치 명령어
+- 저장소 목록 조회 : git branch
+- 저장소 목록(원격 포함 전체목록) : git branch -a
+- 생성만 : git branch <브랜치 이름> 또는 git switch <브랜치 이름>
+- 생성 후 이동 : git checkout -b <브랜치 이름> 또는 git switch -c <브랜치 이름>
+- 삭제 : git branch -d <브랜치 이름>
+- 강제 삭제 : git branch -D <브랜치 이름>
+- 저장소 이동 : git checkout branch-name 또는 git switch branch-name
+- 이전 브랜치로 이동 : git checkout - 또는 git switch -
+- 도움말 : git branch -h
+
+### 5-8. HEAD 포인터 관련
+![image](https://user-images.githubusercontent.com/99636945/197315722-9703b487-c2b4-470b-b9de-f0d256576330.png)
+- 보통 git log나 git diff를 사용할 때 HEAD^나 HEAD~n을 사용하여 해당 커밋 정보만 가져오는 경우에 사용한다.
+
+## 5-9. checkout의 다양한 디테일
+- git checkout [커밋 ID]를 사용할 수도 있다.
+![image](https://user-images.githubusercontent.com/99636945/197315792-65280e09-3487-4bb4-a5ca-14f7272807c1.png)
+- detached HEAD를 사용하여 특정 커밋의 새로운 브랜치를 만들어 작업할때도
+![image](https://user-images.githubusercontent.com/99636945/197315818-45718683-e3d3-498c-90e8-cf1777030873.png)
+![image](https://user-images.githubusercontent.com/99636945/197315868-b310720b-8f68-4526-9c33-c531cff2b85f.png)
+![image](https://user-images.githubusercontent.com/99636945/197315985-5a115a10-c798-49f1-9c79-503b1cddd09b.png)
+![image](https://user-images.githubusercontent.com/99636945/197315991-30763a47-44a3-4d04-9e12-5a919d8ed42e.png)
+
+### 5-10. Reset과 Checkout 비교
+![image](https://user-images.githubusercontent.com/99636945/197316043-8608e1d5-3c6b-4312-9f1a-a661391b1e4b.png)
+
+# 6. 파일 또는 커밋간의 차이를 보는 git diff
+### 6-1. 개념
+- Working directory와 Staging Area 사이의 차이를 보여준다.
+- Staging 된 파일 상태 및 현재 수정중인 상태 비교
+- 특정 파일을 지정하면 파일에 대한 차이를 알려준다.
+- WD/SA간 차이를 비교할 수 있고, Commit, Branch 간의 차이도 비교 가능하다
+![image](https://user-images.githubusercontent.com/99636945/197316290-5044cccf-c0dc-4c9b-9d63-b8cf30e90a69.png)
+
+### 6-2. 명령어
+- 수정 상태 비교(WD/SA) : git diff
+- commit된 파일과 add된 파일 비교 : git diff --staged
+- commit 간 상태 비교 : git diff [commit hash1] [commit hash2]
+- commit 간 상태 비교(HEAD 포인터) : git diff HEAD HEAD^ 처럼 사용
+- branch 간 상태 비교(HEAD 포인터) : git diff [branch1] [branch2]
+- HEAD 포인터는 마지막 커밋 정보를 가리킨다.
+- diff의 개요를 정리하면 다음과 같다.
+![image](https://user-images.githubusercontent.com/99636945/197316378-2d8b4cce-5c4f-49d0-9c05-a83ddb3f150a.png)
+
+### 6-3. 커밋 간의 이동
+- HEAD의 개념을 이해해야 하는데, 위에서 전부 설명했다.
+- 현재 브랜치를 가리키는 포인터이며, 마지막 커밋의 위치를 가리키는 것이다.
+- 최소 1번이상 커밋해야 HEAD 포인터의 위치를 확인할 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/197316478-884dae84-dc2a-4c63-b182-3e6abba8d4e8.png)
+- 몇 가지 추가 개념들이 존재한다.
+![image](https://user-images.githubusercontent.com/99636945/197316563-19813ce8-6550-4cef-9f1e-0efdb8c80609.png)
+- 명령어 예시는 git checkout [HEAD~/HEAD^] 등을 사용해서 이전 커밋으로 되돌아 갈 수 있다.
+- 커밋 정보를 보려면 git show [커밋ID/head]를 사용하면 된다.
+
+
+
+
+
+
+
+
+
+
 
 
 
