@@ -236,9 +236,9 @@
 ### 6-3. 커밋 간의 이동
 - HEAD의 개념을 이해해야 하는데, 위에서 전부 설명했다.
 - 현재 브랜치를 가리키는 포인터이며, 마지막 커밋의 위치를 가리키는 것이다.
-- 최소 1번이상 커밋해야 HEAD 포인터의 위치를 확인할 수 있다.
+- 최소 1번이상 커밋해야 HEAD 포인터의 위치를 확인할 수 있다.  
 ![image](https://user-images.githubusercontent.com/99636945/197316478-884dae84-dc2a-4c63-b182-3e6abba8d4e8.png)
-- 몇 가지 추가 개념들이 존재한다.
+- 몇 가지 추가 개념들이 존재한다.  
 ![image](https://user-images.githubusercontent.com/99636945/197316563-19813ce8-6550-4cef-9f1e-0efdb8c80609.png)
 - 명령어 예시는 git checkout [HEAD~/HEAD^] 등을 사용해서 이전 커밋으로 되돌아 갈 수 있다.
 - 커밋 정보를 보려면 git show [커밋ID/head]를 사용하면 된다.
