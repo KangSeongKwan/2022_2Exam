@@ -342,5 +342,69 @@
 ![image](https://user-images.githubusercontent.com/99636945/196836129-25bb3fc0-d650-416a-8321-7996fd91691a.png)
 - git show로 commit의 세부 내용을 확인할 수도 있다
 
+# 7. Git을 이용한 소스코드 버전관리 방법
+### 7-1. Commit Message 작성 요령
+- 영문 작성 시 변경되는 내용에 대해 설명하되, 시작을 동사로 해 주면 좋다.
+![image](https://user-images.githubusercontent.com/99636945/198193309-e158262e-0fb7-4932-90ff-17935201b593.png)
+- 한글 작성 시 변경되는 내용들에 대해 간단하게 설명하면 된다.
+![image](https://user-images.githubusercontent.com/99636945/198193347-7ecefaf7-cc1c-463b-8a39-ff9b22595275.png)
+- Issue Tracker 사용 시, Issue Number를 Prefix로 사용할 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/198193368-f52c71e0-2288-4d73-a20c-2f65d86851fa.png)
+- 공통점은 특정 기능을 추가했을 때, 해당 기능과 관련된 내용들만 해당 Commit에 포함해야 한다는 것이다.
+- 그렇게 해야 Commit Message도 자연스레 해당 기능만 설명하게 됨
+- 여러 기능을 하나의 Commit에 포함하는 것은 변경사항 추적을 어렵게 만듬
+![image](https://user-images.githubusercontent.com/99636945/198193589-65be1e4e-4c0a-4b76-8f8b-911259d4d991.png)
+
+### 7-2. 최근 Commit 수정(Amend)
+- Commit할 시 추가 기능에 대한 문서를 까먹을 때가 존재한다.
+- 이때 git commit 시 --amend 옵션을 붙일 수 있는데, 기존의 최신 커밋에 변경사항을 추가해준다.
+- git push 수행해서 동기화된 경우, amend 사용을 추천하지 않는다.
+- 동작 원리는 다음과 같다.
+![image](https://user-images.githubusercontent.com/99636945/198193812-34dc819e-0a38-44f3-b463-a17fb89f0b76.png)
+- amend 이후 git push를 수행하려면 에러가 발생할 수 있는데, 원격 저장소와 로컬 저장소의 커밋 이력이 달라 동기화가 안되기 때문에 발생한다.
+- 강제 Push를 하면 해결할 수 있는데, 다른 사용자와의 동기화 문제가 발생할 수 있다.
+- 유용하게 쓰려면, 로컬 저장소에서 커밋 후 Push하지 않은 상황에서 수정해야 할 때 적절하다.
+![image](https://user-images.githubusercontent.com/99636945/198195582-00898dc2-a101-472f-8867-3fa1a2d3e3ee.png)
+![image](https://user-images.githubusercontent.com/99636945/198195683-edbcab7c-e825-43c4-9ec4-2fce39b56807.png)
+
+### 7-3. Repository 변경 사항 파악
+#### 7-3.1. 깃의 저장소 구조
+- WorkSpace : 개발할 소프트웨어 소스코드가 저장된 디렉터리(Local Repository가 있는 디렉터리를 의미)
+- Repository : Commit 된 소스코드 및 버전 관리를 위한 metadata 전체를 의미(.git Directory)
+- Stage : 코드 변경 사항을 Commit을 통해 Repostiory에 반영할 때 포함될 대상을 임시 저장하는 영역
+![image](https://user-images.githubusercontent.com/99636945/198196651-de349e4e-2767-42ef-a113-02df531273bc.png)
+
+#### 7-3.2. Workspace 상태
+- Dirty : 마지막 Commit과 대조하여 WorkSpace에 변경사항이 발생한 상태
+- Clean : 마지막 Commit과 비교해서 WorkSpace에 변경사항이 없는 상태
+- 변경사항 : 새로운 파일, 디렉터리 추가, git에 의해 관리되던 파일 및 디렉터리의 수정, 삭제, 이름 변경
+![image](https://user-images.githubusercontent.com/99636945/198198298-4f0891f4-d477-4cba-a8de-e11e19d3c273.png)
+
+### 7-4. 파일의 상태
+- Untracked : 현재 WorkSpace에 존재하지만, 로컬 저장소의 현재 Commit엔 없음
+- UnModified : 로컬 저장소의 현재 Commit에 있는 파일과 현재 WorkSpace 간 파일 상태가 동일한 경우
+- Modified : 현재 WorkSpace에 있는 파일과 로컬 저장소의 현재 Commit에 있는 파일의 상태가 다를 경우
+- Staged : 현재 Workspace에 파일이 있으며, 로컬 저장소의 현재 commit에도 파일이 있으며, 반영대상에 포함된 상태
+![image](https://user-images.githubusercontent.com/99636945/198198542-bf8befc5-71b4-499b-98e5-440e7ac3dec3.png)
+
+### 7-5. 변경내용 취소
+- git Restore 명령을 사용하는데, 두 가지 방법이 존재한다.
+- git restore : 수정한 소스코드 파일을 반영대상에 포함하기 전에 원래대로 되돌릴 때
+- git restore --staged : 삭제한 소스코드 파일을 반영 대상에 포함했을 때 반영 대상에서 제외
+![image](https://user-images.githubusercontent.com/99636945/198199107-cd2654da-6733-4ea1-8d1b-dd49c3f53f9b.png)
+
+### 7-6. 소스코드 파일 삭제
+- git rm 을 사용한다.(리눅스의 경우는 그냥 rm을 사용하지만, git 내에서 사용할 때에는 git rm을 사용해주면 된다.)
+- 옵션이 없는 경우는 UnModified일 때에 사용할 수 있다.
+![image](https://user-images.githubusercontent.com/99636945/198199495-1e4718c3-fcd6-496d-8673-800ad6621d54.png)
+- Cached 옵션(Modified/Staged 일 때 사용) : WorkSpace 파일은 삭제하지 않고 Stage에 파일 삭제 변경사항을 등록함
+![image](https://user-images.githubusercontent.com/99636945/198199514-ca3685c6-009c-4e82-906c-a4795f635f52.png)
+- Force 옵션(Modified/Staged일 때 사용) : WorkSpace의 파일 삭제하고 Stage에 파일 삭제 변경사항을 등록함
+![image](https://user-images.githubusercontent.com/99636945/198199550-6e6f7ecb-8b13-474a-9110-57e75c255b13.png)
+- 리눅스 명령어 rm을 사용해서 삭제하면 Stage 영역에 파일 삭제 변경사항이 등록 되지 않음
+
+
+
+
 
 
