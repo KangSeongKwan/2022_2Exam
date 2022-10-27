@@ -344,11 +344,11 @@
 
 # 7. Git을 이용한 소스코드 버전관리 방법
 ### 7-1. Commit Message 작성 요령
-- 영문 작성 시 변경되는 내용에 대해 설명하되, 시작을 동사로 해 주면 좋다.
+- 영문 작성 시 변경되는 내용에 대해 설명하되, 시작을 동사로 해 주면 좋다.  
 ![image](https://user-images.githubusercontent.com/99636945/198193309-e158262e-0fb7-4932-90ff-17935201b593.png)
-- 한글 작성 시 변경되는 내용들에 대해 간단하게 설명하면 된다.
+- 한글 작성 시 변경되는 내용들에 대해 간단하게 설명하면 된다.  
 ![image](https://user-images.githubusercontent.com/99636945/198193347-7ecefaf7-cc1c-463b-8a39-ff9b22595275.png)
-- Issue Tracker 사용 시, Issue Number를 Prefix로 사용할 수 있다.
+- Issue Tracker 사용 시, Issue Number를 Prefix로 사용할 수 있다.  
 ![image](https://user-images.githubusercontent.com/99636945/198193368-f52c71e0-2288-4d73-a20c-2f65d86851fa.png)
 - 공통점은 특정 기능을 추가했을 때, 해당 기능과 관련된 내용들만 해당 Commit에 포함해야 한다는 것이다.
 - 그렇게 해야 Commit Message도 자연스레 해당 기능만 설명하게 됨
