@@ -143,9 +143,9 @@
 - High-Level 모델 중 하나
 - 아주 세세한 모델이 아닌 시스템 개요나 시스템 일부를 표현하기 위해 사용
 #### 3-6.1. 표기법
-![image](https://user-images.githubusercontent.com/99636945/196616251-56680f0f-6f55-4208-8e5c-58a40acff490.png)
-![image](https://user-images.githubusercontent.com/99636945/196616281-09428972-545d-420f-8452-6d97e53f8f09.png)
-![image](https://user-images.githubusercontent.com/99636945/196616350-e8801549-3566-4b61-a8e3-a747d6e4335d.png)
+![image](https://user-images.githubusercontent.com/99636945/196616251-56680f0f-6f55-4208-8e5c-58a40acff490.png)  
+![image](https://user-images.githubusercontent.com/99636945/196616281-09428972-545d-420f-8452-6d97e53f8f09.png)  
+![image](https://user-images.githubusercontent.com/99636945/196616350-e8801549-3566-4b61-a8e3-a747d6e4335d.png)  
 #### 3-6.2. 샘플
 ![실습과제샘플-Activity](https://user-images.githubusercontent.com/99636945/196616503-04e32a8f-dace-4fc5-82ee-5adf4118ec2f.png)
 
