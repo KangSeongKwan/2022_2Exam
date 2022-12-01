@@ -157,7 +157,7 @@
 ![image](https://user-images.githubusercontent.com/99636945/204956515-91e46057-3250-4b83-97b5-18f03f90421a.png)
   
 ### 7-2. 지역/원격 저장소 동기화 흐름
-- 1. Clone 직후
+- 1. Clone 직후  
 ![image](https://user-images.githubusercontent.com/99636945/204956714-8f38031a-09bf-4ffc-998e-d0d5b00b9100.png)
 - 2. Remote에 다른 개발자로부터 변경사항 반영된 후
 ![image](https://user-images.githubusercontent.com/99636945/204956802-d7c14ff0-501a-404a-a0a7-a1637cc12943.png)
