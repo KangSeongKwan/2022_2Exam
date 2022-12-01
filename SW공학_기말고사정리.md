@@ -109,6 +109,38 @@
 - merge conflict가 발생하면 git에서 marker를 해당 파일에 추가하여 서로 다른 변경사항을 표시함
 - 이를 바탕으로 서로 다른 변경사항을 적절히 합쳐서 conflict를 해결해야 함
 
+# 5. Rebase
+- Branch에서 작업을 진행하는 동안 해당 branch 생성 시점 이후로 main branch의 변경사항이 많이 발생하거나 버그 수정 등
+중요한 내용이 main branch에 반영되었을 때 사용하는 merge 방식
+- Main Branch에 새롭게 변경된 내용을 먼저 해당 branch로 반영 후 해당 branch의 작업이 완료되었을 때 다시 main branch로 병합 가능
+![image](https://user-images.githubusercontent.com/99636945/204948902-2f3dc154-3675-45c5-9137-fa6513ca1a42.png)
+
+### 5-1. 동작 방식
+- 다른 브랜치에서 기능 개발 중 기존 소스코드 버그로, 중단된 상황을 가정
+![image](https://user-images.githubusercontent.com/99636945/204948972-0c370946-8513-42c6-a728-0bfd64ccc2a4.png)
+![image](https://user-images.githubusercontent.com/99636945/204948992-664646ea-a0c6-47aa-98ca-5ebf2445d009.png)
+![image](https://user-images.githubusercontent.com/99636945/204949232-028c127f-39b0-4cbf-95ea-444d1202add9.png)
+- rebase 시 featureA 브랜치에서 진행
+
+# 6. Squash
+- 기능 개발을 위해 생성한 branch에서 작업하던 중 중간중간 진행사항을 임시 저장하는 경우가 있으며, 커밋 메시지를 크게 신경쓰지 않고 입력하게 됨
+- 이러한 commit은 의미가 없으며, 개별 commit으로 반영되어선 안됨
+- merge 수행 시 임시 commit을 제거하고 의미 단위인 Commit message 구성을 위해 모든 commit을 하나의 commit으로 변환하여 반영
+![image](https://user-images.githubusercontent.com/99636945/204950459-aa464bb4-dd8b-4f60-b68a-944ef254850b.png)
+
+### 6-1. 동작 방식
+- 별도 생성한 branch에서 발생한 commit들을 모두 하나로 묶어서 별도의 commit 생성하며 합쳐지기 이전 commit들은 log에서 확인되지 않음
+![image](https://user-images.githubusercontent.com/99636945/204950617-d91eadc0-632a-4c5b-b67e-cd9d049b0beb.png)
+- 명령어는 main branch로 이동 후 git merge --squash 옵션을 덧붙인다.
+![image](https://user-images.githubusercontent.com/99636945/204950698-47aab1f6-16b0-46b0-aeff-81897732a9d6.png)
+
+### 6-2. 3-way merge와의 차이점
+- squash는 joint commit이 아닌 완전히 별도의 commit을 생성하게 됨
+- git log를 통해 차이점 확인 가능
+![image](https://user-images.githubusercontent.com/99636945/204951266-86f72120-32f8-4586-be72-2019c50f868f.png)
+
+
+
 
 
 
