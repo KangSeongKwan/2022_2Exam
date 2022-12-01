@@ -91,7 +91,7 @@
 ### 4-3. Merge Conflict
 - 병합 수행 과정에서 분기가 발생한 base를 기준으로 병합하려는 두 branch에 동시에 존재하는 file의 특정 내용을
 서로 다른 내용으로 수정한 경우 git에 의해 자동 merge가 되지 않음
-- 소스코드의 의미를 알지 못하기 때문에 판단할 수 없음
+- 소스코드의 의미를 알지 못하기 때문에 판단할 수 없음  
 ![image](https://user-images.githubusercontent.com/99636945/204945235-f9cacea0-4afb-438e-929f-d2360e23fbb3.png)
 - 변경사항 확인 시 소스코드의 Line 단위로 파일 비교가 되므로 서로 다른 Line의 변경사항에 대해선 Conflict가 발생하지 않음
 - 변경이 발생한 부분과 최소 한 줄 이상은 떨어져야 충돌이 발생하지 않음
@@ -112,11 +112,11 @@
 # 5. Rebase
 - Branch에서 작업을 진행하는 동안 해당 branch 생성 시점 이후로 main branch의 변경사항이 많이 발생하거나 버그 수정 등
 중요한 내용이 main branch에 반영되었을 때 사용하는 merge 방식
-- Main Branch에 새롭게 변경된 내용을 먼저 해당 branch로 반영 후 해당 branch의 작업이 완료되었을 때 다시 main branch로 병합 가능
+- Main Branch에 새롭게 변경된 내용을 먼저 해당 branch로 반영 후 해당 branch의 작업이 완료되었을 때 다시 main branch로 병합 가능  
 ![image](https://user-images.githubusercontent.com/99636945/204948902-2f3dc154-3675-45c5-9137-fa6513ca1a42.png)
 
 ### 5-1. 동작 방식
-- 다른 브랜치에서 기능 개발 중 기존 소스코드 버그로, 중단된 상황을 가정
+- 다른 브랜치에서 기능 개발 중 기존 소스코드 버그로, 중단된 상황을 가정  
 ![image](https://user-images.githubusercontent.com/99636945/204948972-0c370946-8513-42c6-a728-0bfd64ccc2a4.png)
 ![image](https://user-images.githubusercontent.com/99636945/204948992-664646ea-a0c6-47aa-98ca-5ebf2445d009.png)
 ![image](https://user-images.githubusercontent.com/99636945/204949232-028c127f-39b0-4cbf-95ea-444d1202add9.png)
@@ -129,14 +129,14 @@
 ![image](https://user-images.githubusercontent.com/99636945/204950459-aa464bb4-dd8b-4f60-b68a-944ef254850b.png)
 
 ### 6-1. 동작 방식
-- 별도 생성한 branch에서 발생한 commit들을 모두 하나로 묶어서 별도의 commit 생성하며 합쳐지기 이전 commit들은 log에서 확인되지 않음
+- 별도 생성한 branch에서 발생한 commit들을 모두 하나로 묶어서 별도의 commit 생성하며 합쳐지기 이전 commit들은 log에서 확인되지 않음  
 ![image](https://user-images.githubusercontent.com/99636945/204950617-d91eadc0-632a-4c5b-b67e-cd9d049b0beb.png)
-- 명령어는 main branch로 이동 후 git merge --squash 옵션을 덧붙인다.
+- 명령어는 main branch로 이동 후 git merge --squash 옵션을 덧붙인다.  
 ![image](https://user-images.githubusercontent.com/99636945/204950698-47aab1f6-16b0-46b0-aeff-81897732a9d6.png)
 
 ### 6-2. 3-way merge와의 차이점
 - squash는 joint commit이 아닌 완전히 별도의 commit을 생성하게 됨
-- git log를 통해 차이점 확인 가능
+- git log를 통해 차이점 확인 가능  
 ![image](https://user-images.githubusercontent.com/99636945/204951266-86f72120-32f8-4586-be72-2019c50f868f.png)
 
 
