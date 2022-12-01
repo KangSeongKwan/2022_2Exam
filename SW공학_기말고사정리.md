@@ -139,6 +139,35 @@
 - git log를 통해 차이점 확인 가능  
 ![image](https://user-images.githubusercontent.com/99636945/204951266-86f72120-32f8-4586-be72-2019c50f868f.png)
 
+# 7. Git을 이용한 협업
+- Git Repository를 local PC에 clone하면 원격 저장소를 그대로 복사해서 download 하는 것
+- clone을 수행한 remote repository를 origin 이라는 이름으로 참조하게 됨
+![image](https://user-images.githubusercontent.com/99636945/204954874-1a46585d-6299-4fee-b8f4-3d84e6e53004.png)
+- clone 직후에는 workspace 가 clean 상태고, main branch는 remote와 동일한 상태를 가짐
+- git log를 통해 clone 시점의 origin의 main branch의 commit을 확인할 수 있음
+![image](https://user-images.githubusercontent.com/99636945/204955779-3ab0b113-299a-4534-bef7-9b88d3f16c2e.png)
+- origin/HEAD는 origin에서 설정된 default branch를 가리키고 Local의 HEAD 포인터와는 다른 역할임
+
+### 7-1. Local Repository 에서 생성한 Branch 업로드
+- 명령어로는 git push [remote repository] [branch name]를 통해 원격 저장소에 브랜치를 업로드한다.  
+![image](https://user-images.githubusercontent.com/99636945/204956055-cf3cf308-77d4-463a-8902-ed8353f67330.png)
+- 로컬 저장소의 origin/main과 origin/HEAD는 clone할 당시 시점의 값을 저장하고 있음  
+![image](https://user-images.githubusercontent.com/99636945/204956186-74d4bd74-8ff1-4236-b2ee-9541be81302f.png)
+- 원격 저장소에 변경된 내용을 다시 로컬 저장소로 동기화해야 origin/main이 현재 원격 저장소의 상태와 동일해짐  
+![image](https://user-images.githubusercontent.com/99636945/204956515-91e46057-3250-4b83-97b5-18f03f90421a.png)
+  
+### 7-2. 지역/원격 저장소 동기화 흐름
+- 1. Clone 직후
+![image](https://user-images.githubusercontent.com/99636945/204956714-8f38031a-09bf-4ffc-998e-d0d5b00b9100.png)
+- 2. Remote에 다른 개발자로부터 변경사항 반영된 후
+![image](https://user-images.githubusercontent.com/99636945/204956802-d7c14ff0-501a-404a-a0a7-a1637cc12943.png)
+- 3. Git fetch 명령어로 remote에 변경된 내용을 local repository로 동기화 한 후
+![image](https://user-images.githubusercontent.com/99636945/204956881-eeca7ec4-0085-4187-ace3-15c38ee52e33.png)
+- 4. Git merge 명령어로 origin/main의 내용을 main에 반영한 후
+![image](https://user-images.githubusercontent.com/99636945/204956958-980e4a11-f0f9-4d8b-9fd7-22662e53d924.png)
+- 3, 4는 fetch, merge와 관련된 것인데, 이를 한꺼번에 자동으로 수행하는 명령어는 git pull origin main이다.
+- fetch 및 merge는 pull로 변경사항을 자동으로 내려받을 수 없는 환경일 경우 유용하게 사용할 수 있다.
+
 
 
 
