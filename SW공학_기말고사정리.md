@@ -168,8 +168,38 @@
 - 3, 4는 fetch, merge와 관련된 것인데, 이를 한꺼번에 자동으로 수행하는 명령어는 git pull origin main이다.
 - fetch 및 merge는 pull로 변경사항을 자동으로 내려받을 수 없는 환경일 경우 유용하게 사용할 수 있다.
 
+### 7-3. Push/Fetch
+- git push 명령어의 경우 branch 단위로 동기화 진행
+- git fetch 명령어의 경우 모든 branch에 대해서 새로운 내용으로 update한다.  
+![image](https://user-images.githubusercontent.com/99636945/205201164-f67833a3-df18-48c4-9a98-4340e8eb2f30.png)
+- 이 때 기본적으로 Fast-forward 방식으로 merge를 시도함
+- 되지 않으면 push는 실패, 사용자가 로컬 저장소를 remote의 최신 상태로 업데이트 후 직접 merge하고 다시 push로 동기화해서 Fast-forward merge가 되도록 해야함
+- Push 명령어는 Fast-forward merge가 가능할 때에만 동작한다는 의미임
 
+### 7-4. 성공적인 Push
+- 성공적으로 Push되는 상황은 다음과 같다.  
+![image](https://user-images.githubusercontent.com/99636945/205203822-0f483f58-c91d-4c42-9581-c07bd170a09a.png)
+![image](https://user-images.githubusercontent.com/99636945/205203863-c034c544-88df-44c3-9a91-7b365177ae26.png)
+![image](https://user-images.githubusercontent.com/99636945/205203887-e681bc13-50de-4efb-85d8-f309f23529ec.png)
+![image](https://user-images.githubusercontent.com/99636945/205203910-2ad49aa0-200a-4fac-801c-de406d3276f0.png)
 
+### 7-5. 실패한 Push 및 해결
+![image](https://user-images.githubusercontent.com/99636945/205204239-fb625b2d-412d-475d-b661-9b532eeed410.png)
+![image](https://user-images.githubusercontent.com/99636945/205204285-3dff232b-8665-46c2-90af-f6f82feb6a74.png)
+![image](https://user-images.githubusercontent.com/99636945/205204315-94902795-6766-412a-a543-2ce837a873e1.png)
+![image](https://user-images.githubusercontent.com/99636945/205204335-dff6aaa0-9573-4a72-a913-8865d1150f23.png)
+![image](https://user-images.githubusercontent.com/99636945/205204556-2f5ecb7e-8210-46bb-8d6a-def807c07a4e.png)
+- 실패하는 이유는 개발자 A가 생성한 C3, 개발자 B가 로컬에 생성한 C4는 3-way merge 방식으로 병합해야 하기 때문임
+- 개발자 B 입장에서는 push에 실패해도 영향이 없고 다음 작업을 진행하면 됨
+![image](https://user-images.githubusercontent.com/99636945/205204824-4070006f-1496-4701-8773-812a39300935.png)
+![image](https://user-images.githubusercontent.com/99636945/205205331-d1216096-9107-4701-999d-0a0fbf8ce615.png)
+![image](https://user-images.githubusercontent.com/99636945/205205402-9ad355db-4e4a-4f51-b8ad-36e0b7bea6d1.png)
+![image](https://user-images.githubusercontent.com/99636945/205205455-132bc1d1-3e7e-48af-ae0e-ec5179325b03.png)
+
+### 7-6. 실패한 Push 및 해결(2)
+![image](https://user-images.githubusercontent.com/99636945/205205716-63f36c5a-04c2-454e-9fae-c2fd646cfd34.png)
+![image](https://user-images.githubusercontent.com/99636945/205206142-853a3bed-dcb8-408b-b52e-424b7d60a05f.png)
+![image](https://user-images.githubusercontent.com/99636945/205206158-667f4198-0124-411d-b1af-f41204eab4fb.png)
 
 
 
