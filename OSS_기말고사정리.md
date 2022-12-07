@@ -83,6 +83,117 @@
 ### 3-4. Merge의 다양한 옵션
 - Fast Forward 여부와 관련된 옵션은 다음과 같다
 ![image](https://user-images.githubusercontent.com/99636945/206079293-cac6238a-6320-438d-a621-afac3f1df7a4.png)
+![image](https://user-images.githubusercontent.com/99636945/206095295-4fae4768-ad7f-4aca-9f24-bebdd9cb63aa.png)
+- --no-ff 옵션 사용 시 무조건 3-way merge를 한다
+![image](https://user-images.githubusercontent.com/99636945/206095433-55113061-bbc8-4791-981c-1a4d36f20708.png)
+- --squash를 사용하면 commit 이력, merge된 브랜치 이력을 남기지 않음
+![image](https://user-images.githubusercontent.com/99636945/206095509-7e447519-4eb7-4a70-8a0c-c4ae37840f00.png)
+
+# 4. Rebase
+- 브랜치를 합치는 방식에는 병합과 리베이스가 있음
+- 커밋 순서를 재배열하는 것이 리베이스임
+
+### 4-1. 베이스
+- 모든 브랜치는 뿌리가 있음(master 예외)
+- 특정 커밋은 브랜치가 파생된 기준이 됨
+- 베이스란, 공통 조상 커밋이라고도 하는데 해당 커밋을 기준으로 커밋이 여러갈래로 갈라지는 경우를 의미함.
+
+### 4-2. 베이스 변경
+- 베이스 앞에 re라는 의미가 붙음
+- 베이스 커밋을 변경하는 것을 말함
+- 이를 통해 병합을 하면서 일어나는 공통 조상 커밋 찾기 과정 등을 생략할 수 있음
+- 여러갈래의 커밋 진행을 일원화 하면서 쉽게 파악할 수 있음
+
+### 4-3. 리베이스 vs 병합
+- 병합은 파생된 두 브랜치를 합치는 과정
+- 공통 조상 커밋을 찾고 3-way 병합을 진행해야 함
+- 리베이스는 브랜치를 서로 비교하지 않고 순차적으로 병합을 진행함
+- 가장 큰 차이점은 3-way 병합은 병합 커밋이 존재하지만 리베이스는 병합 커밋이 없음
+- 브랜치의 마지막을 가리키는 커밋 위치가 다르다는 점도 존재함
+
+### 4-4. Rebase 원리
+![image](https://user-images.githubusercontent.com/99636945/206096726-fa29b569-b109-4876-9900-3e6656810d8e.png)
+![image](https://user-images.githubusercontent.com/99636945/206097112-aab8bde5-5947-4360-9bd9-306b1b7dfb7d.png)
+
+### 4-5. 충돌과 해결
+- 리베이스 역시 병합 과정에서 충돌이 발생할 수 있음
+- 사용자가 직접 수동으로 충돌을 해결해야 함
+![image](https://user-images.githubusercontent.com/99636945/206097516-94c34f3a-d0bc-4836-9651-07132c5e8e20.png)
+
+### 4-6. 3-way 및 fast-forward와 rebase 비교
+![image](https://user-images.githubusercontent.com/99636945/206097673-7551338d-7d16-4b6c-92e4-b914fcb1bc2f.png)
+![image](https://user-images.githubusercontent.com/99636945/206097783-8fa87a56-ae56-4a67-a302-d1da4b91b46f.png)
+
+### 4-7. 리베이스 절차
+- main 브랜치에서 다른 브랜치로 이동 후 rebase main을 실행
+- main으로 되돌아와서 merge를 실행해야 rebase 결과 후 커밋이력이 제대로 반영됨
+![image](https://user-images.githubusercontent.com/99636945/206097960-79a52412-3bbb-461a-b089-6c5727bbe06a.png)
+- 리베이스 방법에는 여러가지가 있다. 예시는 다음과 같다
+![image](https://user-images.githubusercontent.com/99636945/206098238-5b3e6e6c-83a7-4dbc-8192-824c4e138d36.png)
+
+# 5. 커밋 메시지 수정
+- 마지막 커밋은 --amend 옵션으로 수정할 수 있다.
+- 리베이스는 커밋 위치를 재조정하여 병합과 유사한 효과를 보임(실제 병합은 아님)
+- 여러 커밋을 한 커밋으로 묶을 수도 있음 이때는 -i 옵션을 사용하면 됨
+![image](https://user-images.githubusercontent.com/99636945/206098496-882d5491-302c-4fba-9dbf-955d160edc34.png)
+![image](https://user-images.githubusercontent.com/99636945/206098529-957ef7d0-7d04-4d78-b2a4-f9686e2ff5f6.png)
+- rebase -i를 사용하면, 대화식 인터페이스를 보여주는데 사용하는 명령어는 다음과 같다
+![image](https://user-images.githubusercontent.com/99636945/206098616-94062ad5-3650-42ef-9925-3a48f5b7d509.png)
+
+# 6. Reset
+- 깃을 이용하여 버전을 관리하는 목적은 만일의 사태를 대비하기 위해서임
+- 개발자는 코드를 단계별로 발전 시키면서 실수를 최소화하고자 노력해야함
+- 아무리 주의해서 프로그래밍해도 오류가 생길수 있음
+- 억지로 문제를 해결하는 것 보다는 작업을 포기하고 다시 시작하는 것이 더 빠를 수 있음
+- 깃으로는 원하는 시점으로 언제든지 전체 코드를 되돌릴 수 있음
+- 리셋은 커밋을 기준으로 이전 코드로 되돌리는 방법으로, 기록된 커밋을 취소함
+- 커밋을 취소하는 만큼 리셋 시 신중해야함
+
+### 6-1. Git의 4가지 영역
+![image](https://user-images.githubusercontent.com/99636945/206100801-859ef1c8-ff98-47ec-8220-bc2e13ca2a9b.png)
+- 커밋을 수행하고 나면 커밋 이력은 Repository에만 남아있음
+![image](https://user-images.githubusercontent.com/99636945/206101002-d4e1684e-375b-410c-a242-6852825abc5b.png)
+
+### 6-2. 복귀 시점
+- 이전 코드로 복귀하려면 복귀 시점을 알려줘야 함
+- log 명령어로 커밋 해시값을 확인 후 복귀하고자 하는 커밋의 해시값을 넣어 주면 됨  
+
+### 6-3. reset 명령어
+- 지정된 커밋 코드로 되돌아감
+- 형식은 git reset [옵션] [커밋ID]이다.
+- 옵션에는 아래 세 가지가 존재함.
+- soft : 스테이지 영역을 포함한 상태로 복원
+- mixed : 기본은 mixed임.
+- hard : 실제 파일이 삭제된 이전 상태로 복원
+
+### 6-4. 옵션 간 차이점 및 동작
+![image](https://user-images.githubusercontent.com/99636945/206101134-e1094f22-06dd-44ee-8375-b9f8b3dfbdbe.png)
+![image](https://user-images.githubusercontent.com/99636945/206101315-9329630f-5d42-4bdb-9cc9-89c1f17b9e33.png)
+![image](https://user-images.githubusercontent.com/99636945/206101344-fb57e42f-091d-478f-ab85-47c400c5422a.png)
+![image](https://user-images.githubusercontent.com/99636945/206101372-6b73dfde-ce81-45b1-9006-907a9e338084.png)
+![image](https://user-images.githubusercontent.com/99636945/206101712-9cfb47d4-bb75-4a9d-988c-6f9f1798eec7.png)
+
+# 7. Revert
+- 공개 커밋을 되돌리기 위해서 하는 작업
+- 커밋 정보 삭제 여부에 차이가 있음
+- 리버트는 기존 커밋을 남겨 두고 취소에 대한 새로운 커밋을 생성함
+- 취소 커밋 생성할 때에는 revert 명령어 사용
+![image](https://user-images.githubusercontent.com/99636945/206101990-c0810e90-eb69-4108-af04-b3c2e7092718.png)
+
+### 7-1. 리버트 지정
+- 리버트는 한 번에 커밋 하나만 취소 가능
+- 범위 지정 연산자를 사용하여 여러 커밋을 revert 할 수 있음
+- 사용 예시는 git revert CommitID .. CommitID와 같이 사용
+![image](https://user-images.githubusercontent.com/99636945/206102474-54a14e65-d318-4d27-9e2f-61b7f31d9679.png)
+
+### 7-2. Revert 동작 및 결과
+![image](https://user-images.githubusercontent.com/99636945/206102548-c0d53337-03e5-4e22-9f11-17191cdce871.png)
+![image](https://user-images.githubusercontent.com/99636945/206102584-f68d11f0-a187-45eb-88ca-826d01833d91.png)
+
+### 7-3. Reset 와 Revet, Checkout 비교
+![image](https://user-images.githubusercontent.com/99636945/206102753-8ae63236-d529-46f4-bee0-5f390ef6a5ff.png)
+![image](https://user-images.githubusercontent.com/99636945/206102828-fc439060-25bc-475d-a881-7ed037b2f8fd.png)
+
 
 
 
