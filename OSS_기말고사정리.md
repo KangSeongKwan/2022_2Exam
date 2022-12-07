@@ -28,3 +28,64 @@
 
 
 # 2. 브랜치 병합
+### 2-1. 수동 병합
+- 하나씩 직접 비교하는 방식임
+- 양쪽 파일을 일일이 비교하며 바뀐점을 찾아서 적용해야함.
+- 오류없이 코드를 병합하는 것은 간단하지 않고, 사람의 기억력에 대한 한계점이 명확함
+
+
+### 2-2. 깃으로 자동 병합
+- 복잡한 파일을 좀 더 간편하게 병합할 수 있음
+- 모든 코드를 완벽하게 병합하는 것은 아니며, 이로 인해 발생하는 현상을 충돌이라고함
+- 브랜치를 기준으로 병합하며, 같은 저장소 내 서로 독립적인 작업을 분리한 영역이다.
+- 각각의 브랜치에서 수정된 사항을 하나의 브랜치로 병합한다. 이때 병합하려는 브랜치는 같은 로컬 저장소에 있어야 한다.
+
+### 2-3. 병합 방식
+- 병합에 있어서 상대적인 기준을 판별하는 알고리즘이 존재한다.
+- Fast-Forward와, 3-way 병합 방식을 제공한다.
+![image](https://user-images.githubusercontent.com/99636945/206076712-8c287c5a-dabd-41bb-99b5-2c97140e88a7.png)
+
+### 2-3. Fast-Forward 병합 적용
+- 병합 메시지에 Fast-Forward 방식으로 적용 되었다고 출력된다.
+- 병합 원리는 다음과 같다
+![image](https://user-images.githubusercontent.com/99636945/206076918-996c2615-6fde-4d67-9e78-7fa7f38e4e39.png)
+
+- git log를 찍어보면 작업한 브랜치의 시작 커밋을 원본 브랜치 이후의 커밋으로 가리키는 것을 확인할 수 있다.
+ <img width="315" alt="ㅇ" src="https://user-images.githubusercontent.com/101856066/200575247-160b9ddc-48e9-49d1-ad7e-76e45a50c0b4.png">
+ <img width="253" alt="ㅈ" src="https://user-images.githubusercontent.com/101856066/200575690-07804d3f-8c07-41d4-a50a-a089c7d22d06.png">
+- 이를 통해 Fast-Forward 병합은 병합할 하나의 브랜치 파일을 기준 브랜치로 복사하여 수정된 파일을 원본에 그대로 적용한 것과 같다는 점을 알 수 있다.
+
+### 2-4. 3-way 병합
+- 좀 더 복잡한 병합을 처리할 수 있는 방법.
+- 여러 개발자와 협업으로 작업하는 경우 대부분 3-way 병합을 사용.
+- 원리는 다음과 같다
+![image](https://user-images.githubusercontent.com/99636945/206077049-9cf5d86a-d171-4a31-9066-119c3cf71dd3.png)
+![image](https://user-images.githubusercontent.com/99636945/206077163-0a6a9bb1-329e-45bc-bd71-ad650a0e8805.png)  
+- 여기서 -m으로 메세지를 주지 않으면, 병합 메시지를 입력할 기본 편집기를 실행한다.
+
+# 3. 충돌
+### 3-1. 충돌이 생기는 상황
+- 여러 사람과 개발 작업을 하다 보면 예상외로 충돌이 자주 발생.
+- 대부분의 충돌 원인은 같은 위치의 코드를 동시에 수정했기 때문.
+- 파일을 수정할 때 여러 개발자가 서로 다른 위치를 수정했다면 깃에서 서로 다른 위치의 소스를 자동으로 병합하기 때문에 문제 없음.
+- 하지만 파일에서 동일한 위치에 두 명 이상이 서로 다르게 수정했다면 충돌이 발생.
+![image](https://user-images.githubusercontent.com/99636945/206077707-ebaedbbe-544d-46c0-acb3-5c64d947c9d6.png)
+
+### 3-2. 병합 사례 및 차이점
+![image](https://user-images.githubusercontent.com/99636945/206077881-a16c622a-5077-4cf6-a9ba-c4820679a3ce.png)
+![image](https://user-images.githubusercontent.com/99636945/206077943-bcea9e7a-f2b5-4116-ad03-9c0e9bb6a076.png)
+![image](https://user-images.githubusercontent.com/99636945/206078228-27e6d4f2-8b3a-4310-bc76-e3c1a1b9241e.png)
+
+### 3-3. 주의점
+- merge 전 Stage 영역에 작업중인 파일이 없는지 꼭 확인할 것
+![image](https://user-images.githubusercontent.com/99636945/206078645-50283148-8804-46d3-89ad-f5546e5a0b2d.png)
+
+### 3-4. Merge의 다양한 옵션
+- Fast Forward 여부와 관련된 옵션은 다음과 같다
+![image](https://user-images.githubusercontent.com/99636945/206079293-cac6238a-6320-438d-a621-afac3f1df7a4.png)
+
+
+
+
+
+
