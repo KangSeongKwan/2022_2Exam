@@ -201,6 +201,46 @@
 ![image](https://user-images.githubusercontent.com/99636945/205206142-853a3bed-dcb8-408b-b52e-424b7d60a05f.png)
 ![image](https://user-images.githubusercontent.com/99636945/205206158-667f4198-0124-411d-b1af-f41204eab4fb.png)
 
+# 8. 메인 기반 워크플로우
+- 개발자가 새로운 기능을 개발 시 branch 생성 후 작업 수행
+- 개발 완료 후에는 local Repository의 main으로 병합 후 remote로 동기화 하는 방식
+![image](https://user-images.githubusercontent.com/99636945/206368802-61c10e19-c21c-4070-88ab-4c99951f769d.png)
+- 동기화 실패 시, merge 수행 후 다시 동기화 해야함
+![image](https://user-images.githubusercontent.com/99636945/206369043-47c7e9cf-f166-4208-a707-050551121e1e.png)
+
+# 9. Pull Request 기반 워크플로우
+- Github홈페이지를 통해 remote repository의 작업 브랜치에서 직접 main branch로 병합 수행
+- 다른 사용자로 부터 변경 내용에 대한 코드 리뷰를 받고, 지정된 사람들로부터 승인이 필요
+![image](https://user-images.githubusercontent.com/99636945/206369619-243127c2-d69b-428b-bdf9-aa974249ad5d.png)
+- merge 이후에 remote의 main과 local의 main은 서로 다른 상태가됨(동기화 필요)
+![image](https://user-images.githubusercontent.com/99636945/206369899-0a9ce5ca-ef1b-4c27-bd16-833e5b03c466.png)
+
+### 9-1. Rebase and Merge
+- rebase 동작은 작업 브랜치에 있는 commit을 main으로 rebase함
+![image](https://user-images.githubusercontent.com/99636945/206370045-943f0bed-6bb3-43c6-b558-6b255c94e91b.png)
+- Pull request에서는 작업 브랜치에 있는 commit들을 main에 똑같이 복사하는 방식의 rebase를 사용함
+- 이후 branch는 Delete Branch로 삭제해야 한다
+![image](https://user-images.githubusercontent.com/99636945/206370410-014fb58c-56c9-45b4-a92b-1884d6bc95f7.png)
+- 실제로 local에서는 rebase 수행 후 작업 브랜치에서 생성된 commit은 새로운 base 이후에 복제되는 형태로 처리된다.
+- 더이상 작업 브랜치에서 Commit은 보이지 않게 된다.
+![image](https://user-images.githubusercontent.com/99636945/206370626-0c4a12bd-0c4d-42c2-8152-0e7666cb5cd1.png)
+- pull request에서 rebase merge 후 브랜치 삭제를 하지 않으면 동일한 커밋을 또다시 복제 후 rebase를 시도하기 때문
+![image](https://user-images.githubusercontent.com/99636945/206370919-21f865b7-ca88-487f-b210-571546f9f258.png)
+
+### 9-2. Squash and merge
+- pull request에서 squash를 하면 다음과 같이 동작함
+![image](https://user-images.githubusercontent.com/99636945/206371396-7ba729ad-ebd4-4ca6-bde1-43a6c4bd3875.png)
+- rebase를 진행하고 merge할 commit들을 하나의 commit에 합친다. 
+- squash merge를 하면 많은 commit들을 하나의 commit에 합쳐 깔끔한 Git History가 나오게 한다.
+
+### 9-3. Main 기반 워크플로우 vs Pull Request 기반 워크플로우
+![image](https://user-images.githubusercontent.com/99636945/206371747-4db5f13e-1b2a-4b63-a3a1-577502d149a1.png)
+
+
+
+
+
+
 
 
 
