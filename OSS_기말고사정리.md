@@ -81,7 +81,7 @@
 ![image](https://user-images.githubusercontent.com/99636945/206078645-50283148-8804-46d3-89ad-f5546e5a0b2d.png)
 
 ### 3-4. Merge의 다양한 옵션
-- Fast Forward 여부와 관련된 옵션은 다음과 같다
+- Fast Forward 여부와 관련된 옵션은 다음과 같다  
 ![image](https://user-images.githubusercontent.com/99636945/206079293-cac6238a-6320-438d-a621-afac3f1df7a4.png)
 ![image](https://user-images.githubusercontent.com/99636945/206095295-4fae4768-ad7f-4aca-9f24-bebdd9cb63aa.png)
 - --no-ff 옵션 사용 시 무조건 3-way merge를 한다
