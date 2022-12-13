@@ -63,4 +63,22 @@
 ### 4-4. 
 ![image](https://user-images.githubusercontent.com/99636945/206615097-3cd242be-c431-41bf-b742-a4c6c4c07d28.png)
 
+# 5. 13주차
+### 5-1. 
+![image](https://user-images.githubusercontent.com/99636945/207232968-fa491def-8d1b-402e-9f29-dd85d63a4f0b.png)
+
+### 5-2.
+![image](https://user-images.githubusercontent.com/99636945/207233003-8d5a9955-1a31-4a40-8ac4-fc06ff38b4a1.png)
+
+### 5-3. github의 pull request를 통해 feature branch에서 main branch로 merge 수행 시 좌측에서 우측으로 변환하기 위해 사용되는 merge 방식은?
+![image](https://user-images.githubusercontent.com/99636945/207233137-017abac0-aff6-4260-9c68-830638002d93.png)
+
+### 5-4. 
+![image](https://user-images.githubusercontent.com/99636945/207233177-b8b85510-eae5-4b74-a7c8-7acd6b60cf11.png)
+
+### 5-5. github의 pull request를 통해 feature branch를 main branch로 merge하는 과정에서 좌측에서 우측으로 변한하기 위해 사용되는 merge 방식은?
+![image](https://user-images.githubusercontent.com/99636945/207233371-52588b82-c484-4279-a7c8-40cadaed83b5.png)
+
+
+
 
