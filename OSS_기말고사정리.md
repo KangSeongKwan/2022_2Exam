@@ -117,7 +117,7 @@
 
 ### 4-5. 충돌과 해결
 - 리베이스 역시 병합 과정에서 충돌이 발생할 수 있음
-- 사용자가 직접 수동으로 충돌을 해결해야 함
+- 사용자가 직접 수동으로 충돌을 해결해야 함  
 ![image](https://user-images.githubusercontent.com/99636945/206097516-94c34f3a-d0bc-4836-9651-07132c5e8e20.png)
 
 ### 4-6. 3-way 및 fast-forward와 rebase 비교
