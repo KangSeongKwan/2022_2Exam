@@ -47,7 +47,7 @@
 
 ### 2-3. Fast-Forward 병합 적용
 - 병합 메시지에 Fast-Forward 방식으로 적용 되었다고 출력된다.
-- 병합 원리는 다음과 같다
+- 병합 원리는 다음과 같다  
 ![image](https://user-images.githubusercontent.com/99636945/206076918-996c2615-6fde-4d67-9e78-7fa7f38e4e39.png)
 
 - git log를 찍어보면 작업한 브랜치의 시작 커밋을 원본 브랜치 이후의 커밋으로 가리키는 것을 확인할 수 있다.
